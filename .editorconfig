@@ -1,0 +1,3 @@
+[*.fs]
+fsharp_newline_before_multiline_computation_expression = false
+max_line_length = 120
