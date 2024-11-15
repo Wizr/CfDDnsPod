@@ -79,7 +79,7 @@ let buildRequest
     let timestamp =
         DateTime.UtcNow.Subtract(DateTime(1970, 1, 1)).TotalSeconds |> int |> string
 
-    let request = RestRequest("/", Method.Post, Timeout = TimeSpan.FromSeconds(5))
+    let request = RestRequest("/", Method.Post, Timeout = TimeSpan.FromSeconds 5L)
 
     let auth = getAuth secretId secretKey host contentType action timestamp body
 

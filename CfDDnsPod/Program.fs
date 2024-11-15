@@ -21,7 +21,7 @@ let cred =
        SecretKey = SECRET_KEY |}
 
 let client =
-    new RestClient(RestClientOptions("https://dnspod.tencentcloudapi.com", Timeout = Nullable(TimeSpan.FromSeconds(5))))
+    new RestClient(RestClientOptions("https://dnspod.tencentcloudapi.com", Timeout = TimeSpan.FromSeconds 5L))
 
 let service = "dnspod"
 let version = "2021-03-23"
@@ -82,14 +82,16 @@ let run () = asyncResult {
         do! modifyRecord recordId ipNew
         return true
     else
-        printfn "no change"
+        printfn $"keep current: {ipOld}"
         return false
 }
 
 let loop () = async {
+    printfn $"loop per {INTERVAL}s for domain {SUBDOMAIN}.{DOMAIN}"
+
     while true do
         let! _ = run ()
-        do! Async.Sleep (INTERVAL*1000)
+        do! Async.Sleep(INTERVAL * 1000)
 }
 
 loop () |> Async.RunSynchronously
