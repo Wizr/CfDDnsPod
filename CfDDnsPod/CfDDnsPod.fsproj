@@ -4,12 +4,13 @@
     <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DnsPodTypes.fs" />
     <Compile Include="DnsPodApi.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FSharp.Data" Version="6.4.0" />
-    <PackageReference Include="fstoolkit.errorhandling" Version="4.15.2" />
-    <PackageReference Include="restsharp" Version="111.3.0" />
+    <PackageReference Include="fstoolkit.errorhandling" Version="4.18.0" />
+    <PackageReference Include="restsharp" Version="112.1.0" />
   </ItemGroup>
 </Project>
